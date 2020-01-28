@@ -2,6 +2,8 @@
 
 > An interactive visualization tool for monitoring the evolution of optical properties of nanoparticles throughout synthesis reactions.
 
+<img src="https://github.com/gfsarmanho/NanoUV-VIS/tree/master/www/hex_logo-R.png" width="150" height="150" align="right"/>
+
 <p align="center">
 <img src="www/Fig_plots.png" alt="Drawing" style="width:80%;"/>
 </p>
@@ -41,6 +43,13 @@ In the following gif you will find some quick instructions to run *NanoUV-VIS* u
 
 # Contributions
 Any suggestions or contributions to this project (comments, questions, typo corrections, etc.) are more than welcome! You can do it directly on this GitHub repository or mail to <gabriel.sarmanho@nist.gov> and <bryan.calderonjimenez@nist.gov>.
+
+# Citation
+
+Please cite the following article when using *NanoUV-VIS* web application:
+
+**Jimenez**, B. C., **Sarmanho**, G. F., Murphy, K. E., Bustos, A. R. M., & Baudrit, J. R. V. (2017). NanoUV-VIS: an interactive visualization tool for monitoring the evolution of optical properties of nanoparticles throughout synthesis reactions. **Journal of Research (NIST JRES)**, 122. DOI: https://doi.org/10.18434/M3T952
+
 
 # License and Disclaimer Statement
 This software is in the public domain. Click [here](DISCLAIMER.md) to access the disclaimer statement.
