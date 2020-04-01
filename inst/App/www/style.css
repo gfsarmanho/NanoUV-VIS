@@ -1,0 +1,61 @@
+/*====================*/
+/* App:  NanoUV-VIS   */
+/*                    */
+/* File: style.css    */
+/*====================*/
+
+/* -------------------------------------------------------------------------- */
+/*                             Help popup                                     */
+/* -------------------------------------------------------------------------- */
+.popover {
+  width: 300px;
+}
+
+.popover-title {
+  font-weight: bold;
+}
+
+.popover-link {
+  color: #444;
+  font-size: 16px;
+}
+
+.popover-link > .fa {
+  vertical-align: top;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         Loading Button                                     */
+/* -------------------------------------------------------------------------- */
+.btn-loading-container {
+margin-left: 10px;
+font-size: 1.2em;
+}
+
+.btn-done-indicator {
+color: green;
+}
+
+.btn-err {
+margin-top: 10px;
+color: red;
+}
+
+#loading-content {
+  position: absolute;
+  background: #000000;
+  z-index: 10000;
+  margin-top: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 3em;
+  padding-top: 50px;
+}
+
+/*============================================================================*/
+/*================================ END =======================================*/
+/*============================================================================*/

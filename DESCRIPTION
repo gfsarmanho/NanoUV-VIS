@@ -1,0 +1,31 @@
+Package: NanoUVVIS.App
+Type: Package
+Title: Shiny app for monitoring the evolution of optical properties of
+       nanoparticles throughout synthesis reactions
+Version: 1.0
+Author@R: person("Gabriel", "F. Sarmanho",
+                 email = "gfsarmanho@inmetro.gov.br",
+                 role = c("aut", "cre"))
+Description: R package containing a shiny web interactive application that provides
+             visualization tool for monitoring the evolution of optical properties
+             of nanoparticles throughout synthesis reactions. Uploading multiple 
+             ultraviolet-visible spectroscopy (UV-Vis) absorbance spectra it is
+             possible to interactively analyse reactions aspects throughout
+             different plots in two and three dimentions.
+License: GLP-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 3.0.0)
+Imports:
+  shiny,
+  shinyjs,
+  knitr,
+  rmarkdown,
+  plotly,
+  plot3D,
+  DT,
+  crosstalk,
+  shinycssloaders,
+  htmlwidgets
+URL: https://github.com/gfsarmanho/NanoUVVIS.App

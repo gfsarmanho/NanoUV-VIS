@@ -1,4 +1,8 @@
-# server.R
+#===================#
+# App:  NanoUV-VIS  #
+#                   #
+# File: server.R    #
+#===================#
 
 #====================#
 # Begin Shiny Server #
@@ -10,7 +14,7 @@ shinyServer(function(input, output) {
   output$downloadExampleData <- downloadHandler(
     filename = function() { "example-to-download.csv" },
     content = function(file) {
-      data_example <- read.csv("www/example-to-download.csv")
+      data_example <- read.csv("./www/example-to-download.csv")
       colnames(data_example)[-1] <- gsub(pattern="X", replacement="",
                                          x=colnames(data_example)[-1])
       write.csv(x=data_example, file, row.names=FALSE)
@@ -22,7 +26,7 @@ shinyServer(function(input, output) {
   output$downloadExampleMult <- downloadHandler(
     filename = function() { "example-multiple-data.zip" },
     content = function(file) {
-      data_example <- read.csv("www/example-to-download.csv")
+      data_example <- read.csv("./www/example-to-download.csv")
       colnames(data_example)[-1] <- gsub(pattern="X", replacement="",
                                          x=colnames(data_example)[-1])
       write.csv(x=data_example, file, row.names=FALSE)
@@ -648,7 +652,8 @@ shinyServer(function(input, output) {
       htmlwidgets::saveWidget(widget=p_spec_mix2, file)
     }
   )
-  #----------------------------------------------------------------------------#
-  #----------------------------------------------------------------------------#
-  #----------------------------------------------------------------------------#
-}) #end of server
+}) #endof server{()}
+
+#==============================================================================#
+#================================= END ========================================#
+#==============================================================================#

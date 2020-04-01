@@ -9,25 +9,27 @@
 #install.packages(c("plotly", "plot3D", "DT", "crosstalk", "htmlwidgets"))
 
 # Load packages
-library(shiny)
-library(shinyjs)
-library(knitr)
-library(rmarkdown)
-library(plotly)           # interactive plots (surface, contour, curves, etc.)
-library(plot3D)           # create fancy surface plots
-library(DT)               # create interactive tables
-library(crosstalk)        # generate interactions between widgets
-library(shinycssloaders)  # create "loading signals" when processing plots
-library(htmlwidgets)      # save plots in ".html"
+# library(shiny)
+# library(shinyjs)
+# library(knitr)
+# library(rmarkdown)
+# library(plotly)           # interactive plots (surface, contour, curves, etc.)
+# library(plot3D)           # create fancy surface plots
+# library(DT)               # create interactive tables
+# library(crosstalk)        # generate interactions between widgets
+# library(shinycssloaders)  # create "loading signals" when processing plots
+# library(htmlwidgets)      # save plots in ".html"
 
-# Load functions
-source("R-functions/FUN_peak_uvvis.R")
-source("R-functions/FUN_join_zz_table.R")
-source("R-functions/FUN_plot_spec.R")
-source("R-functions/FUN_helpers.R")
-
-# Load global variables
-plot_colors <- c("#619CFF", "#F8766D", "#00BA38")
+if (!(require(shiny))){install.packages("shiny"); library(shiny, quietly = TRUE)} 
+if (!(require(shinyjs))){install.packages("shinyjs"); library(shinyjs, quietly = TRUE)} 
+if (!(require(knitr))){install.packages("knitr"); library(knitr, quietly = TRUE)} 
+if (!(require(rmarkdown))){install.packages("rmarkdown"); library(rmarkdown, quietly = TRUE)} 
+if (!(require(plotly))){install.packages("plotly"); library(plotly, quietly = TRUE)} 
+if (!(require(plot3D))){install.packages("plot3D"); library(plot3D, quietly = TRUE)} 
+if (!(require(DT))){install.packages("DT"); library(DT, quietly = TRUE)} 
+if (!(require(crosstalk))){install.packages("crosstalk"); library(crosstalk, quietly = TRUE)} 
+if (!(require(shinycssloaders))){install.packages("shinycssloaders"); library(shinycssloaders, quietly = TRUE)} 
+if (!(require(htmlwidgets))){install.packages("htmlwidgets"); library(htmlwidgets, quietly = TRUE)} 
 
 #================#
 # Begin Shiny UI #
@@ -44,13 +46,11 @@ shinyUI(navbarPage(
   # "Load" shinyjs library inside application
   shinyjs::useShinyjs(),
   
-  # Load javascript functions
-  shinyjs::extendShinyjs("www/shinyjs-funcs.js", functions=c()),
-  
-  # Use "style.css" file
-  tags$head(
-    tags$link(href="www/style.css", rel="stylesheet")
-  ),
+  # Load JS code 
+  includeScript("www/shinyjs-funcs.js"), # button to stop computations
+
+  # Load CSS functions
+  includeCSS("www/style.css"),
   
   #==================#
   # NAV PANEL: About #
@@ -63,7 +63,7 @@ shinyUI(navbarPage(
     name  = "aboutTab",
     
     # Load Rmarkdown data with "about" info
-    tags$iframe(src = './ABOUT.html',       # put ".html" file on "www" folder
+    tags$iframe(src = "ABOUT.html",       # put ".html" file on "www" folder
                 width="100%", height="800px", seamless="yes",
                 frameborder=0, scrolling="auto"
     )
@@ -127,17 +127,17 @@ shinyUI(navbarPage(
             fluidRow(
               column(width=4,
                      textInput(inputId="unit_x", value="min",
-                               label=div(h5("Time", helpPopup("X-coor.")))
+                               label=div(h5("Time", helpPopup("X-axis (abscissa)")))
                      )
               ),
               column(width=4, 
                      textInput(inputId="unit_y", value="nm",
-                               label=div(h5("Wavelength", helpPopup("Y-coor.")))
+                               label=div(h5("Wavelength", helpPopup("Y-axis (ordinate)")))
                      )
               ),
               column(width=4, 
                      textInput(inputId="unit_z", value="",
-                               label=div(h5("Absorbance", helpPopup("Z-coord.")))
+                               label=div(h5("Absorbance", helpPopup("Z-axis (applicate)")))
                      )
               )
             ),
@@ -307,4 +307,8 @@ shinyUI(navbarPage(
     br(), 
     DT::dataTableOutput(outputId="tab_resultsFWHM")
   )
-)) #end of navbarPage() and 
+)) #endof navbarPage() and shinyUI()
+
+#==============================================================================#
+#================================= END ========================================#
+#==============================================================================#
