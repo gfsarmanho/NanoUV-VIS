@@ -5,21 +5,6 @@
 #===================#
 
 # Install required packages
-#install.packages(c("shiny", "shinyjs", "knitr", "rmarkdown", "shinycssloaders"))
-#install.packages(c("plotly", "plot3D", "DT", "crosstalk", "htmlwidgets"))
-
-# Load packages
-# library(shiny)
-# library(shinyjs)
-# library(knitr)
-# library(rmarkdown)
-# library(plotly)           # interactive plots (surface, contour, curves, etc.)
-# library(plot3D)           # create fancy surface plots
-# library(DT)               # create interactive tables
-# library(crosstalk)        # generate interactions between widgets
-# library(shinycssloaders)  # create "loading signals" when processing plots
-# library(htmlwidgets)      # save plots in ".html"
-
 if (!(require(shiny))){install.packages("shiny"); library(shiny, quietly = TRUE)} 
 if (!(require(shinyjs))){install.packages("shinyjs"); library(shinyjs, quietly = TRUE)} 
 if (!(require(knitr))){install.packages("knitr"); library(knitr, quietly = TRUE)} 
@@ -218,8 +203,11 @@ shinyUI(navbarPage(
         )
       ), #end of sidebarPanel()
       mainPanel(
-        div(id="message_dat", h3("Please load a valid data set."),
-            style="text-align: center"),
+        div(id = "message_dat", 
+            style="text-align: center; color: #bababa; font-size: 30px;",
+            br(), br(), br(),
+            "Please load a valid data set", br(), icon("file-alt")
+        ),
         DT::dataTableOutput(outputId="tab_zzTable")
       ) #end of mainPanel()
     ) #end of sidebarLayout()
@@ -234,9 +222,10 @@ shinyUI(navbarPage(
     id    = "visualTab",
     value = "visualTab",
     
-    div(id="message_vis", h3("Please load a valid data set."),
-        style="text-align: center"),
-    
+    div(id="message_vis", style="text-align: center; color: #bababa; font-size: 30px;",
+        br(), br(), br(),
+        "Please load a valid data set", br(), icon("file-alt")
+    ),
     shinyjs::hidden(div(id="visualTab2",
       tabsetPanel(
         tabPanel(title="Surface",
@@ -295,9 +284,10 @@ shinyUI(navbarPage(
     id    = "resultsTab",
     value = "resultsTab",
     
-    div(id="message_res", h3("Please load a valid data set."),
-        style="text-align: center"),
-    
+    div(id="message_res", style="text-align: center; color: #bababa; font-size: 30px;",
+        br(), br(), br(),
+        "Please load a valid data set", br(), icon("file-alt")
+    ),
     shinyjs::hidden(
       div(id="down_button_FWHM",
           downloadButton(outputId="downloadBtnFWHM",
